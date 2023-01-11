@@ -1,0 +1,22 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px auto 0;
+  max-width: 1150px;
+  position: relative;
+
+  img {
+    width: 60%;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  ul {
+    position: relative;
+
+    .fas {
+      font-size: 2rem;
+      margin: 18px 25px 0 0;
+      color: $color-3;
+    }
+  }
+}

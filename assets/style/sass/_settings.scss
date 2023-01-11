@@ -1,0 +1,44 @@
+@font-face {
+  font-family: "font-1";
+  src: url(fonts/SourceSansPro-Bold.ttf);
+}
+@font-face {
+  font-family: "font-2";
+  src: url(fonts/SourceSansPro-Ligth.ttf);
+}
+
+$font-1: "font-1", sans-serif;
+$font-2: "font-2", sans-serif;
+
+$color-1: #3E0018;
+$color-2: #B01735;
+$color-3: #EAE0DA;
+$white: #eee;
+$black: #111;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+a, a:visited {
+  color: $white;
+  text-decoration: none;
+}
+input, select {
+  outline: none;
+  background: $color-2;
+  border: none;
+}
+body {
+  font-family: $font-1;
+  background: $color-2;
+  color: $white;
+}
+#root {
+  transition: .3s;
+}
+i {
+  cursor: pointer;
+}

@@ -1,0 +1,304 @@
+.lobby-container {
+  background: $color-1;
+  height: 100%;
+  min-height: 90vh;
+  border-radius: 56px 56px 20px 20px;
+  margin: 54px auto 20px;
+  padding-bottom: 20px;
+  max-width: 1150px;
+
+  .cancel {
+    display: flex;
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid $white;
+    border-radius: 25px;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: 0.2s;
+
+    i {
+      transform: translate(4px, 2px);
+      font-size: 0.8rem;
+    }
+    &:hover {
+      background: $white;
+      color: $color-1;
+    }
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+    font-size: 2.5rem;
+    width: 90%;
+    margin: 0 auto 0;
+    position: relative;
+    color: $color-1;
+
+    li {
+      background: $color-3;
+      padding: 10px 18px;
+      width: 70px;
+      text-align: center;
+      border-radius: 50%;
+      margin-top: -34px;
+      box-shadow: 0 0 4px #333;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .search,
+    select,
+    .radio-container {
+      border-radius: 40px;
+      height: 60px;
+      position: absolute;
+      top: 45px;
+      padding: 0 20px;
+      color: $color-1;
+      max-width: 550px;
+    }
+    .name {
+      input {
+        left: 0px;
+        width: 90%;
+        transform-origin: left;
+        transform: scaleX(0);
+        animation: animInput 0.5s ease forwards;
+        font-family: $font-1;
+
+        &::placeholder {
+          font-size: 1.3rem;
+          color: $color-1;
+          transform: translateY(2px);
+        }
+
+        @keyframes animInput {
+          to {
+            transform: scaleX(1);
+          }
+        }
+      }
+      i {
+        transform: translateX(-2px);
+      }
+    }
+    .country {
+      i {
+        transform: translate(-1px, 1px);
+      }
+      select {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 320px;
+        animation: animInput2 0.4s ease forwards;
+        transform: scaleX(0);
+        transform-origin: left;
+        background: $color-2;
+        border: none;
+        outline: none;
+        z-index: 2;
+        font-size: 1.3rem;
+        text-align: center;
+        color: $color-1;
+        font-family: $font-1;
+
+        @keyframes animInput2 {
+          to {
+            transform: scaleX(1) translateX(-50%);
+          }
+        }
+      }
+    }
+    .grapes {
+      .radio-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        right: 0;
+        width: 90%;
+        background: $color-2;
+        transform-origin: right;
+        transform: scaleX(0);
+        animation: animInput 0.5s ease forwards;
+
+        @media screen and (max-width: 650px) {
+          width: 100%;
+        }
+
+        .radio {
+          display: flex;
+          align-items: center;
+
+          label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-right: 10px;
+            font-size: 1.05rem;
+
+            @media screen and (max-width: 650px) {
+              font-size: 0.8rem;
+              margin-right: 1px;
+            }
+          }
+          input {
+            padding: 0 10px;
+            background: none;
+          }
+        }
+      }
+    }
+  }
+
+  .title {
+    position: absolute;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    left: 50%;
+    transform: translate(-50%, 18px);
+    width: 450px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    color: $color-3;
+  }
+  h3 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 130px;
+  }
+  .list-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 72px auto 0;
+
+    .wine-list {
+      @media screen and(min-width: 850px) {
+        width: 50%;
+      }
+    }
+
+    .wine-card {
+      background: $color-3;
+      border-radius: 25px;
+      padding: 20px;
+      overflow: hidden;
+      position: relative;
+      height: 440px;
+      box-shadow: 1px 1px 5px rgba(226, 226, 226, 0.178);
+      margin: 14px auto 0;
+
+      &:nth-child(1),
+      &:nth-child(2) {
+        margin-top: 14px;
+      }
+
+      @media screen and(min-width: 850px) {
+        width: 98%;
+      }
+      @media screen and (max-width: 550px) {
+        height: 340px;
+      }
+
+      &:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100px;
+        background: url("../img/card-bg.jpg") center 75% / cover;
+        top: 0;
+        left: 0;
+        opacity: 0.55;
+        border-radius: 0 0 120px 45%/60px;
+      }
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 8px 20px 42px;
+
+        h2 {
+          padding: 0;
+          z-index: 20;
+          font-size: 1.8rem;
+          color: $white;
+
+          @media screen and (max-width: 550px) {
+            font-size: 1.3rem;
+          }
+        }
+        i {
+          margin-right: 6px;
+          font-size: 1.3rem;
+          z-index: 20;
+        }
+      }
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 73% 27%;
+
+      .text-container {
+        .buttons {
+          display: flex;
+          margin: 24px 0 20px;
+          width: 100%;
+          justify-content: space-between;
+
+          h4 {
+            background: $color-1;
+            border-radius: 20px;
+            padding: 10px 10px;
+            box-shadow: 0 0 4px #333;
+
+            @media screen and (max-width: 550px) {
+              font-size: 0.8rem;
+            }
+          }
+        }
+        .location {
+          margin: 20px 0 20px;
+          color: $color-1;
+
+          i {
+            color: $color-2;
+            font-size: 1.4rem;
+            margin-right: 6px;
+          }
+          span {
+            font-size: 1.3rem;
+          }
+        }
+        p {
+          font-weight: 100;
+
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 7;
+          overflow: hidden;
+          color: $color-1;
+          font-family: $font-2;
+          line-height: 24px;
+
+          @media screen and (max-width: 550px) {
+            -webkit-line-clamp: 4;
+          }
+        }
+      }
+      img {
+        margin: 0 auto;
+        padding: 20px 0 0 20px;
+        max-height: 300px;
+
+        @media screen and (max-width: 550px) {
+          height: 200px;
+        }
+      }
+    }
+  }
+}

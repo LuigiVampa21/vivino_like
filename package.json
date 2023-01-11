@@ -1,0 +1,21 @@
+{
+  "name": "vuejs-php",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./assets/style/index.scss:./assets/style/index.css",
+    "start": "browser-sync start --proxy localhost/vuejs-php-base  --files '**/*' --no-notify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JustFS/vuejs-php.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JustFS/vuejs-php/issues"
+  },
+  "homepage": "https://github.com/JustFS/vuejs-php#readme"
+}
