@@ -1,33 +1,44 @@
-// const vue = new Vue({
-//     async mounted(){
-//         try{
-//             const res = await axios.get("libraries/controllers/getData.php");
-//             console.log(res);
-//         }catch(err){
-//             console.error(err);
-//         }
-//     }
-
-
-  const { createApp } = Vue
+const { createApp } = Vue
 
   createApp({
     data() {
       return {
-        wines: []
+        wines: [],
+        searchArray: [],
+        countries: [],
+        searchKey: "",
+        inputType: "",
+        countrySelected: "",
       }
     },
     async mounted(){
         try{
           const res = await axios.get("libraries/controllers/getData.php");
           this.wines = res.data;
+          this.searchArray = this.wines;
+          const countries = [...this.searchArray].map(wine => wine.country);
+          this.countries = ["Choose your country", ...new Set(countries)];
         }catch(err){
         }
     },
     methods: {
       removeItem(id){
-        // this.$delete(this.wines, id);
-        this.wines = [...this.wines].filter(wine => wine.id !== id);
+        this.searchArray = [...this.searchArray].filter(wine => wine.id !== id);
       }
     },
+    computed: {
+      search(){
+        if(!this.searchKey){
+          this.searchArray = [...this.wines];
+        }
+        this.searchArray = [...this.wines].filter(wine => wine.name.toLowerCase().includes(this.searchKey.toLowerCase()));
+      },
+      countrySearch(){
+        if(this.countrySelected === "Choose your country" || !this.countrySelected){
+          this.searchArray = [...this.wines];
+        }
+        this.searchArray = [...this.wines].filter(wine => wine.country === this.countrySelected);
+      }
+
+    }
   }).mount('#root')
