@@ -12,16 +12,22 @@
   const { createApp } = Vue
 
   createApp({
+    data() {
+      return {
+        wines: []
+      }
+    },
     async mounted(){
         try{
           const res = await axios.get("libraries/controllers/getData.php");
-          console.log(res);
+          this.wines = res.data;
         }catch(err){
         }
     },
-    data() {
-      return {
-        message: 'Hello Vue!'
+    methods: {
+      removeItem(id){
+        // this.$delete(this.wines, id);
+        this.wines = [...this.wines].filter(wine => wine.id !== id);
       }
-    }
+    },
   }).mount('#root')

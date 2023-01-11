@@ -14,9 +14,16 @@
     </li>
   </ul>
 
-  <div class="wine-list">
-    <div class="wine-card">
+  <div class="list-container">
 
-    </div>
+    <div v-for="wine in wines" :key="wine.id" class="wine-list">
+      <div class="wine-card">
+        <div class="card-header">
+          <h2>{{wine.name}}</h2>
+        <i @click="removeItem(wine.id)" class="fas fa-times"></i>
+      </div>
+      
+        </div>
+       </div>
+     </div>
   </div>
-</div>
