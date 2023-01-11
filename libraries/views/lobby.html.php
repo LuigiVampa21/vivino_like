@@ -14,7 +14,11 @@
 
     <li class="grapes" @click="inputType = 'grapes'">
       <i class="fas fa-wine-glass-alt"></i>
-      <div v-if="inputType === 'country'" class="radio-container">
+      <div v-if="inputType === 'grapes'" class="radio-container">
+      <div class="radio" v-for="grape in grapes" :key="grape">
+        <label :for="grape">{{grape}}</label>
+        <input v-model="grapeSelected" @click="grapeSearch" type="radio" name="grape" :id="grape" :value="grape" class="radio-button">
+      </div>  
       </div>
     </li>
   </ul>
