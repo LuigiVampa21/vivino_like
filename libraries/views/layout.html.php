@@ -13,13 +13,15 @@
 
 <body>
 
-
+  
   <?php include 'libraries/views/nav.html.php' ?>
-
+  
   <div id="root"><?= $pageContent ?></div>
-
-
-  <script src="./assets/js/vue.js"></script>
+  
+  
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js"></script>
+<script src="./assets/js/vue.js"></script>
 </body>
 
 </html>
